@@ -1,0 +1,14 @@
+.home{
+    .start{
+        display: flex;
+        justify-content: space-around;
+        padding: 16px;
+        .heading{
+            color: rgb(130, 33, 33);
+            font-size: larger;
+            font-weight: 800;
+            font-family:'Times New Roman', Times, serif;
+            // padding-left:100px;
+        }
+    }
+}
