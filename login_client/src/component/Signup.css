@@ -1,0 +1,193 @@
+/* Full page center */
+.login {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    font-family: "Poppins", sans-serif;
+    position: relative;
+}
+
+/* Form Card */
+.login form {
+    width: 380px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.6s ease;
+}
+
+/* Form Title */
+.login form h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #e75480;
+    font-weight: 600;
+}
+
+/* Wrapper for inputs */
+.box>div {
+    margin-bottom: 18px;
+}
+
+/* Labels */
+.box label {
+    font-size: 15px;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Inputs */
+.box input[type="text"],
+.box input[type="email"],
+.box input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1.6px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* Focus glow */
+.box input:focus {
+    border-color: #e75480;
+    box-shadow: 0 0 6px rgba(231, 84, 128, 0.4);
+}
+
+/* Submit Button */
+.box button {
+    width: 100%;
+    padding: 12px;
+    font-size: 17px;
+    background: #e75480;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: 0.3s ease;
+}
+
+.box button:hover {
+    background: #d44673;
+}
+
+/* Link */
+.box a {
+    color: #e75480;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.box a:hover {
+    text-decoration: underline;
+}
+
+/* Center "Sign Up" link */
+.box p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #444;
+}
+
+/* Smooth fade animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 🌙 Theme Toggle Button */
+.theme-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 15px;
+    background: #e75480;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.theme-btn:hover {
+    background: #222;
+}
+
+/* ---------------------------- */
+/* 🌙 DARK THEME MODE           */
+/* ---------------------------- */
+
+.login.dark {
+    background: linear-gradient(135deg, #2b2b2b, #1a1a1a);
+    color: white;
+}
+
+/* Dark form card */
+.login.dark form {
+    background: #222;
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.08);
+}
+
+/* Title color */
+.login.dark form h1 {
+    color: #ff8db3;
+}
+
+/* Label */
+.login.dark .box label {
+    color: #ddd;
+}
+
+/* Input fields dark */
+.login.dark .box input[type="text"],
+.login.dark .box input[type="email"],
+.login.dark .box input[type="password"] {
+    background: #2f2f2f;
+    border: 1.6px solid #444;
+    color: white;
+}
+
+.login.dark .box input:focus {
+    border-color: #ff8db3;
+    box-shadow: 0 0 6px rgba(255, 141, 179, 0.4);
+}
+
+/* Button dark */
+.login.dark .box button {
+    background: #ff8db3;
+    color: #000;
+}
+
+.login.dark .box button:hover {
+    background: #ff6b99;
+}
+
+/* Link dark */
+.login.dark .box a {
+    color: #f6d8e2;
+}
+
+.login.dark .box a:hover {
+    color: #e4c7d0;
+}
+
+/* Paragraph dark */
+.login.dark .box p {
+    color: #ccc;
+}

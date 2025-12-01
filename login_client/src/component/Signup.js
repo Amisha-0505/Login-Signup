@@ -1,82 +1,97 @@
-import React from 'react'
-import { useState } from 'react'
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
+import "./Signup.css";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
-    const [fname,setFname]=useState("");
-    const [lname,setLname]=useState("");
-    const [password,setPassword]=useState("");
-    const [email,setEmail]=useState("");
-    
-    const handleSubmit=(e)=>{
-        e.preventDefault();
-        console.log(fname,lname,password,email);
-        axios.post('http://localhost:9000/register',{fname,lname,email,password});
-    }
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
 
+  const navigate=useNavigate();
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:9000/register", {
+        fname,
+        lname,
+        email,
+        password,})
+      .then((res)=>{
+        alert("Signup Successfully!");
+        navigate('/home');
+      })
+      .catch((err)=> console.log(err));  
+  };
 
-    return (
-    <div>
-        <form onSubmit={handleSubmit}>
-        <h1>Sign-Up</h1>
+  return (
+    <div className="login">
+      <button
+        className="theme-btn"
+        onClick={() => {
+          document.querySelector(".login").classList.toggle("dark");
+        }}
+      >
+        Dark Mode
+      </button>
 
-        <div>
-            <label>First name</label>
-            <div>
+      <form onSubmit={handleSubmit}>
+        <h1>Sign Up</h1>
+
+        {/* IMPORTANT: box wrapper added */}
+        <div className="box">
+          
+          <div>
+            <label>First Name</label>
             <input
-            type="text"
-            placeholder="First name"
-            value={fname}
-            onChange={(e)=>{setFname(e.target.value)}}
-           />
-           </div>
-        </div>
+              type="text"
+              placeholder="First name"
+              value={fname}
+              onChange={(e) => setFname(e.target.value)}
+            />
+          </div>
 
-        <div>
-            <label>Last name</label>
-            <div>
+          <div>
+            <label>Last Name</label>
             <input
-            type="text"
-            placeholder="Last name"
-            value={lname}
-            onChange={(e)=>{setLname(e.target.value)}}
-           />
-           </div>
-        </div>
+              type="text"
+              placeholder="Last name"
+              value={lname}
+              onChange={(e) => setLname(e.target.value)}
+            />
+          </div>
 
-        <div>
-            <label>Email address</label>
-            <div>
+          <div>
+            <label>Email Address</label>
             <input
-            type="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={(e)=>{setEmail(e.target.value)}}
-           />
-           </div>
-        </div>
-        <div>
+              type="email"
+              placeholder="Enter email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          <div>
             <label>Password</label>
-            <div>
             <input
-            type="password"
-            placeholder="Enter password"
-            value={password}
-            onChange={(e)=>{setPassword(e.target.value)}}
-           />
-            </div>
-        </div>
+              type="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
 
-        <div>
-            <button type="submit">Sign Up</button>
+          <button type="submit">Sign Up</button>
+
+          <p>
+            Already registered? <a href="/sign-in">Sign in</a>
+          </p>
         </div>
-        <p>Already registered
-            <a href="/sign-in">Sign in</a>
-        </p>
-        </form>
+      </form>
     </div>
-  )
+  );
 }
 
-export default Signup
+export default Signup;

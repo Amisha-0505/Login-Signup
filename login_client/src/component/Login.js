@@ -1,18 +1,25 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from 'axios';
-// import './Login.scss'
+import { useNavigate } from 'react-router-dom';
 import './Login.css'
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [darkMode, setDarkMode] = useState(false);
+    const navigate=useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(email, password);
-        const token = await axios.post('http://localhost:9000/login', { email, password });
+        const token = await axios
+        .post('http://localhost:9000/login', { email, password })
+        .then((res)=>{
+            alert("Login Successfully");
+            navigate("/home");
+        })
+        .catch((err)=> console.log(err));
         console.log(token);
     }
     return (
