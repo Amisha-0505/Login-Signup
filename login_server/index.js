@@ -21,5 +21,6 @@ mongoose.connect(process.env.db)
 
 app.use('/',userRouter);
 
-const Port=9000;
-app.listen(Port,()=>{console.log(`Your server is running at a port ${Port}`)})
+const port = process.env.PORT || 9000 
+
+app.listen(Port,()=>{console.log(`Your server is running at a port ${port}`)})
